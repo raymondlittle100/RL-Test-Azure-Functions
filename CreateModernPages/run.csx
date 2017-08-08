@@ -16,7 +16,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
     string pageName = data.PageName; 
     string pageText = data.PageText; 
 
-    log.Info($"Received siteUrl={siteUrl}, pageName={pageName}, pageText={pageText}")
+    log.Info($"Received siteUrl={siteUrl}, pageName={pageName}, pageText={pageText}");
     
     if (siteUrl.Contains("www.contoso.com")) {
         return req.CreateResponse(HttpStatusCode.BadRequest, "Error: please run in the context of a real SharePoint site, not the local workbench. We need this to know which site to create the page in!");
