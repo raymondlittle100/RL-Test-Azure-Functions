@@ -1,4 +1,12 @@
+using System;
 using System.Net;
+using Newtonsoft.Json;
+using Microsoft.SharePoint.Client;
+using OfficeDevPnP.Core;
+using OfficeDevPnP.Core.Pages;
+
+private static readonly string ADMIN_USER_CONFIG_KEY = "SharePointAdminUser";
+private static readonly string ADMIN_PASSWORD_CONFIG_KEY = "SharePointAdminPassword";
 
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
 {
@@ -21,9 +29,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
     if (siteUrl.Contains("www.contoso.com")) {
         return req.CreateResponse(HttpStatusCode.BadRequest, "Error: please run in the context of a real SharePoint site, not the local workbench. We need this to know which site to create the page in!");
     }
-
-    string ADMIN_USER_CONFIG_KEY = "SharePointAdminUser";
-    string ADMIN_PASSWORD_CONFIG_KEY = "SharePointAdminPassword";
+    
     string adminUserName = System.Environment.GetEnvironmentVariable(ADMIN_USER_CONFIG_KEY, EnvironmentVariableTarget.Process);
     string adminPassword = System.Environment.GetEnvironmentVariable(ADMIN_PASSWORD_CONFIG_KEY, EnvironmentVariableTarget.Process);
 
