@@ -1,12 +1,9 @@
 {
-    "frameworks":
-    {
-        "net46":
-        {
-            "dependencies":
-            {
-                "SharePointPnPCoreOnline":"2.17.1703"
-            }
-        }
+  "frameworks": {
+    "net46":{
+      "dependencies": {
+        "SharePointPnPCoreOnline": "2.14.1704"
+      }
     }
+   }
 }
